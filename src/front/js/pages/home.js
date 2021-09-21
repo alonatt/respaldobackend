@@ -4,6 +4,7 @@ import "../../styles/home.scss";
 import { HeroSection } from "../component/landing-hero";
 import { TeamMembers } from "../component/quienes-somos-card";
 import { Contacto } from "../component/contacto";
+import { PreguntasFrecuentes } from "../component/PreguntasFrecuentes";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -13,6 +14,7 @@ export const Home = () => {
 			<HeroSection />
 			<TeamMembers />
 			<Contacto />
+			<PreguntasFrecuentes />
 		</div>
 	);
 };
