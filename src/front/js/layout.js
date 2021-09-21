@@ -11,6 +11,8 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Test } from "./pages/test";
+import { RepartidorMapa } from "./pages/vista-reparto-mapa";
 
 //create your first component
 const Layout = () => {
@@ -26,6 +28,12 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route exact path="/test">
+							<Test />
+						</Route>
+						<Route exact path="/map">
+							<RepartidorMapa />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
