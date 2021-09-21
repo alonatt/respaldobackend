@@ -1,6 +1,5 @@
 import React from "react";
 import { LeftSidebar } from "../component/left-sidebar";
-import { Footer } from "/workspace/Proyecto_Final/src/front/js/component/footer.js";
 
 export const DashTrans = () => {
 	return (
@@ -8,13 +7,13 @@ export const DashTrans = () => {
 			<LeftSidebar />
 			<div className="container w-50">
 				<h1>Lista de Precios Según Sector</h1>
-				<table className="table table-bordered table-dark">
+				<table className="table table-light">
 					<thead>
 						<tr>
 							<th scope="col">#</th>
-							<th scope="col">Retiro</th>
-							<th scope="col">Sector</th>
-							<th scope="col">Precio</th>
+							<th scope="col">First</th>
+							<th scope="col">Last</th>
+							<th scope="col">Handle</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,12 +31,13 @@ export const DashTrans = () => {
 						</tr>
 						<tr>
 							<th scope="row">3</th>
-							<td colSpan="2">Larry the Bird</td>
+							<td>Larry</td>
+							<td>the Bird</td>
 							<td>@twitter</td>
 						</tr>
 					</tbody>
 				</table>
-				<h3>** Montos Referenciales</h3>
+				<h4>** Montos Referenciales</h4>
 				<div className="row">
 					<button type="button" className="btn btn-primary mx-2">
 						Editar Informacion
