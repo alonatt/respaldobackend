@@ -6,7 +6,6 @@ import { Marker } from "@react-google-maps/api";
 	/* Tamaño del mapa */
 }
 const containerStyle = {
-
 	width: "75vw",
 	height: "80vh"
 };
