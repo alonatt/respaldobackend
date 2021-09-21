@@ -3,8 +3,8 @@ import heroImg from "../../img/heroImg.png";
 
 export const HeroSection = () => {
 	return (
-		<div>
-			<div id="heroSection" className="container-fluid">
+		<div id="heroSection">
+			<div className="container-fluid">
 				<div className="row pt-5 h-100">
 					<div className="col-11 col-sm-6">
 						<h1 id="heroH1" className="text-white p-5">
