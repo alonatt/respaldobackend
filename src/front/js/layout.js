@@ -13,6 +13,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Test } from "./pages/test";
 import { RepartidorMapa } from "./pages/vista-reparto-mapa";
+import { DashTrans } from "./pages/DashTrans";
 
 //create your first component
 const Layout = () => {
@@ -37,6 +38,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
+						</Route>
+						<Route exact path="/DashTransport">
+							<DashTrans />
 						</Route>
 						<Route exact path="/signin">
 							<Signin />

@@ -6,7 +6,6 @@ import { Map } from "../component/mapa";
 import { TeamMembers } from "../component/quienes-somos-card";
 import { Contacto } from "../component/contacto";
 
-
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
