@@ -3,7 +3,7 @@ import React from "react";
 export const Contacto = () => {
 	return (
 		<div className="p-5 bg-light">
-			<h1 className="text-center p-3">Contactanos</h1>
+			<h1 className="text-center p-3 text-secondary">Contactanos</h1>
 			<form>
 				<div className="form-group">
 					<label htmlFor="exampleInputEmail1">Email address</label>

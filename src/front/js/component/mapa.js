@@ -22,7 +22,7 @@ const center = {
 export const Map = () => {
 	return (
 		<LoadScript googleMapsApiKey="AIzaSyB1GucpRkmWB21geTiUfWGORwEt1E3utC0">
-			<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={14}>
+			<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
 				{/* Child components, such as markers, info windows, etc. */}
 				<>
 					{/* Markers son los pins en el mapa */}

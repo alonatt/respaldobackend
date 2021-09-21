@@ -9,7 +9,7 @@ export const RepartidorMapa = props => {
 	const params = useParams();
 
 	return (
-		<div className="mt-5">
+		<div className="margin">
 			<LeftSidebar />
 			<Map />
 		</div>
