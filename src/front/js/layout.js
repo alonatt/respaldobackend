@@ -11,6 +11,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Test } from "./pages/test";
 import { RepartidorMapa } from "./pages/vista-reparto-mapa";
+import { NavbarRepartidor } from "./component/navbar-repartidor";
 
 //create your first component
 const Layout = () => {
@@ -22,15 +23,16 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
 					<Switch>
 						<Route exact path="/">
+							<Navbar />
 							<Home />
 						</Route>
 						<Route exact path="/test">
 							<Test />
 						</Route>
 						<Route exact path="/map">
+							<NavbarRepartidor />
 							<RepartidorMapa />
 						</Route>
 						<Route exact path="/demo">
