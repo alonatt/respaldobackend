@@ -1,8 +1,8 @@
 import React from "react";
 
-export const Contacto = () => {
+export const Contacts = () => {
 	return (
-		<div className="p-5 bg-light">
+		<div id="contacts" className="p-5 bg-light">
 			<h1 className="text-center p-3 text-secondary">Contactanos</h1>
 			<form>
 				<div className="form-group">

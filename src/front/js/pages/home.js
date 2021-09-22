@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { HeroSection } from "../component/landing-hero";
-import { TeamMembers } from "../component/quienes-somos-card";
-import { Contacto } from "../component/contacto";
-import { PreguntasFrecuentes } from "../component/PreguntasFrecuentes";
+import { TeamMembers } from "../component/about-us";
+import { Contacts } from "../component/contacts";
+import { FrequentlyAsked } from "../component/frequently-asked";
 import { Allseller } from "../component/allseller";
 
 export const Home = () => {
@@ -14,8 +14,8 @@ export const Home = () => {
 		<div>
 			<HeroSection />
 			<TeamMembers />
-			<Contacto />
-			<PreguntasFrecuentes />
+			<Contacts />
+			<FrequentlyAsked />
 			<Allseller />
 		</div>
 	);

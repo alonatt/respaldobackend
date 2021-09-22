@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const NavbarRepartidor = () => {
+export const NavbarDelivery = () => {
 	return (
 		<nav className="navbar navbar-expand-lg fixed-top bg-light">
 			<div className="container-fluid">
-				<a className="navbar-brand text-secondary" href="#">
-					Fleet Logo
-				</a>
+				<Link to="/">
+					<a className="navbar-brand text-secondary" href="#">
+						Fleet Logo
+					</a>
+				</Link>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -21,9 +23,11 @@ export const NavbarRepartidor = () => {
 				<div className="collapse navbar-collapse">
 					<ul className="navbar-nav ml-auto">
 						<li className="nav-item">
-							<a className="nav-link active" aria-current="page" href="#">
-								inicio
-							</a>
+							<Link to="/">
+								<a className="nav-link active text-secondary" aria-current="page" href="#">
+									inicio
+								</a>
+							</Link>
 						</li>
 					</ul>
 				</div>

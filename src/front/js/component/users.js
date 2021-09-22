@@ -15,7 +15,7 @@ export const Users = () => {
 			<div className="row">
 				<div className="col col-8">
 					<div className="card-body">
-						<span>Bienvenido {store.detailseller.username}</span>
+						<span>Bienvenido {store.detailseller.name}</span>
 					</div>
 				</div>
 				<div className="col col-3">
