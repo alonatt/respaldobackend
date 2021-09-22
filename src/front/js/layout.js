@@ -12,9 +12,14 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Test } from "./pages/test";
+import { Seller } from "./pages/seller";
 import { RepartidorMapa } from "./pages/vista-reparto-mapa";
 import { DashTrans } from "./pages/DashTrans";
 import { NavbarRepartidor } from "./component/navbar-repartidor";
+import { NavbarSell } from "./component/ navbarSell";
+import { Sidebar } from "./component/sidebar";
+import { Something } from "./pages/something";
+import { Allseller } from "./component/allseller";
 
 //create your first component
 const Layout = () => {
@@ -33,6 +38,13 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/test">
 							<Test />
+						</Route>
+						<Route exact path="/something">
+							<Something />
+						</Route>
+						<Route exact path="/seller/:idseller">
+							<NavbarSell />
+							<Seller />
 						</Route>
 						<Route exact path="/map">
 							<NavbarRepartidor />

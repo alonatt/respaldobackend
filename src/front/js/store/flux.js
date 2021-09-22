@@ -13,7 +13,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			seller: [],
+			detailseller: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -28,6 +30,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
+
+			//Funcion llamar usuarios, (API FAKE)
+			loadSeller: () => {
+				const store = getStore();
+				fetch("https://jsonplaceholder.typicode.com/users")
+					.then(response => response.json())
+					.then(result => {
+						setStore({ seller: result });
+						console.log(store.seller);
+					})
+					.catch(error => console.log("error", error));
+			},
+
+			//Funcion llamar detalle de usuarios (API FAKE)
+			loadDetailseller: id => {
+				const store = getStore();
+				fetch("https://jsonplaceholder.typicode.com/users/" + id)
+					.then(response => response.json())
+					.then(result => {
+						setStore({ detailseller: result });
+						console.log("ddetailseller", store.detailseller);
+					})
+					.catch(error => console.log("error", error));
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
