@@ -10,8 +10,9 @@ export const Login = () => {
 
 	return (
 		<>
-			<div id="divSignin">
-				<div className="signinBox">
+			{/* <h1 style={{ color: "black", textAlign: "center" }}>Bienvenido!</h1> */}
+			<div className="row" id="divSignin">
+				<div id="loginBox" className="col">
 					<form>
 						<h1>Acceso</h1>
 						<select className="custom-select" id="inputGroupSelect01">
@@ -40,8 +41,34 @@ export const Login = () => {
 						<button type="submit" style={{ backgroundColor: "transparent" }} className="btn btn-primary">
 							Recuperar Contraseña
 						</button>
+						<br />
 					</form>
-					<form action="login.html" method="POST" />
+				</div>
+				<div className="col" style={{ marginTop: "100px" }}>
+					<h2 style={{ color: "black" }}>
+						¿Aún no cuentas con tu perfil?
+						<br />
+						Registrate, para obtener todos los beneficios de Fleet!
+					</h2>
+					<Link to="/signup">
+						<button
+							id="signupButton"
+							type="submit"
+							style={{ marginTop: "10px" }}
+							className="btn btn-primary">
+							Registrarse
+						</button>
+					</Link>
+					<br />
+					<Link to="/">
+						<button
+							id="signupButton"
+							type="submit"
+							style={{ marginTop: "120px" }}
+							className="btn btn-primary">
+							Volver a Inicio
+						</button>
+					</Link>
 				</div>
 			</div>
 

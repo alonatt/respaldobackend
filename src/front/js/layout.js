@@ -5,7 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
-import { Signin } from "./pages/signin";
+import { Signup } from "./pages/signup";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
@@ -56,8 +56,8 @@ const Layout = () => {
 						<Route exact path="/DashTransport">
 							<DashTrans />
 						</Route>
-						<Route exact path="/signin">
-							<Signin />
+						<Route exact path="/signup">
+							<Signup />
 						</Route>
 						<Route exact path="/login">
 							<Login />

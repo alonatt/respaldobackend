@@ -1,5 +1,6 @@
 import React from "react";
 import heroImg from "../../img/heroImg.png";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
 	return (
@@ -11,8 +12,12 @@ export const HeroSection = () => {
 							Hola! Somos Fleet y aqui es donde juntamos vendedores y repartidores
 						</h1>
 						<div>
-							<button className="button pl-4">iniciar seccion</button>
-							<button className="button pl-4">subscribe</button>
+							<Link to="/login">
+								<button className="button pl-4">iniciar Sesión</button>
+							</Link>
+							<Link to="/signup">
+								<button className="button pl-4">Registrarse</button>
+							</Link>
 						</div>
 					</div>
 					<div className="col-11 col-sm-6 p-5">
