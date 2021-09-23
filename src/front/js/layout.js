@@ -13,9 +13,9 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Test } from "./pages/test";
 import { Seller } from "./pages/seller";
-import { RepartidorMapa } from "./pages/vista-reparto-mapa";
+import { DeliveryMap } from "./pages/delivery-map";
 import { DashTrans } from "./pages/DashTrans";
-import { NavbarRepartidor } from "./component/navbar-repartidor";
+import { NavbarDelivery } from "./component/navbar-delivery";
 import { NavbarSell } from "./component/ navbarSell";
 import { Sidebar } from "./component/sidebar";
 import { Something } from "./pages/something";
@@ -47,8 +47,8 @@ const Layout = () => {
 							<Seller />
 						</Route>
 						<Route exact path="/map">
-							<NavbarRepartidor />
-							<RepartidorMapa />
+							<NavbarDelivery />
+							<DeliveryMap />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />

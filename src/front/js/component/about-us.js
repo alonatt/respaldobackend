@@ -2,7 +2,7 @@ import React from "react";
 
 export const TeamMembers = () => {
 	return (
-		<div className="p-5">
+		<div id="who-we-are" className="p-5">
 			<h1 className="text-center p-3">Quienes somos</h1>
 			<div className="row d-flex justify-content-around">
 				<div className="col-3">

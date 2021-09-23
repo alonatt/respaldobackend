@@ -1,8 +1,8 @@
 import React from "react";
 
-export const PreguntasFrecuentes = () => {
+export const FrequentlyAsked = () => {
 	return (
-		<div className="p-5">
+		<div id="faq" className="p-5">
 			<h2 className="text-center p-3">Preguntas Frecuentes</h2>
 			<div className="row d-flex justify-content-around">
 				<div className="col-10">
