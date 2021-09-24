@@ -1,6 +1,6 @@
 import React from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
-import { Marker } from "@react-google-maps/api";
+import { Marker, InfoWindow } from "@react-google-maps/api";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useContext } from "react";
@@ -18,19 +18,6 @@ const center = {
 	lng: -70.6344
 };
 
-const vendedor1 = {
-	lat: -33.4562,
-	lng: -70.5936
-};
-const vendedor2 = {
-	lat: -33.45659,
-	lng: -70.58871
-};
-const vendedor3 = {
-	lat: -33.418,
-	lng: -70.6064
-};
-
 export const Map = () => {
 	const { store, actions } = useContext(Context);
 	return (
@@ -41,47 +28,16 @@ export const Map = () => {
 					{/* Markers son los pins en el mapa */}
 					<div>
 						{store.vendedores.map((person, position) => {
-							return <Marker key={position} position={{ lat: person.lat, lng: person.lng }} />;
+							return (
+								<Marker
+									key={position}
+									position={{ lat: person.lat, lng: person.lng }}
+									data-toggle="modal"
+									data-target="#exampleModal"
+								/>
+							);
 						})}
 					</div>
-					{/*	<Marker
-						key="bellavista"
-						position={{
-							lat: -33.4322,
-							lng: -70.6364
-						}}
-					/>
-					<Marker
-						key="las-condes"
-						position={{
-							lat: -33.4088,
-							lng: -70.5671
-						}}
-					/>
-					<Marker
-						key="pudahuel"
-						position={{
-							lat: -33.4421,
-							lng: -70.7641
-						}}
-					/>
-					<Marker
-						key="macul"
-						position={{
-							lat: -33.4851,
-							lng: -70.5992
-						}}
-					/>
-					<Marker
-						key="santiago"
-						position={{
-							lat: -33.4489,
-							lng: -70.6693
-						}}
-					/>
-					<Marker key="vendedor1" position={vendedor1} />
-					<Marker key="vendedor2" position={vendedor2} />
-					<Marker key="vendedor3" position={vendedor3} />*/}
 				</>
 			</GoogleMap>
 		</LoadScript>
