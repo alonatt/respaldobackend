@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
-
+"""
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -17,7 +17,7 @@ class User(db.Model):
             "email": self.email,
             # do not serialize the password, its a security breach
         }
-
+"""
 class PerfilVendedor(db.Model):
     __tablename__= 'perfilvendedor'
     id_vendor = db.Column(db.Integer, primary_key=True)
@@ -34,6 +34,7 @@ class PerfilVendedor(db.Model):
         return {
             "id_vendor": self.id_vendor,
             "email": self.email,
+            "name":self.name,
             "lastName": self.lastName,
             "email": self.email,
             "rut": self.rut,
