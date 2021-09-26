@@ -1,9 +1,18 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+import os 
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, PerfilVendedor, Encomiendas , PedidoAceptado, Tarifas, PerfilTransportista
 from api.utils import generate_sitemap, APIException
+from flask_cors import CORS
+import datetime
+#pipenv install flask-jwt-extended
+#importar LO QUE NECESITAMOS DE JWT
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+
 
 api = Blueprint('api', __name__)
 
@@ -38,12 +47,27 @@ def all_perfilVendedor():
         onePeople = PerfilVendedor.query.filter_by(email=body["email"]).first()
         if onePeople:
             if (onePeople.password == body["password"] ):
-                return(jsonify({"mensaje":True}))
+                #CUANDO VALIDAMOS LA PASSWORD CREAREMOS EL TOKEN
+                expira = datetime.timedelta(minutes=2)
+                access_token = create_access_token(identity=onePeople.email, expires_delta=expira)
+                data = {
+                    "info_user": onePeople.serialize(),
+                    "token": access_token,
+                    "expires": expira.total_seconds()
+                }
+                return(jsonify(data))
             else:
-                return(jsonify({"mensaje":"password incorrecta"}))
+                return(jsonify({"mensaje":False}))
         else:
             return(jsonify({"mensaje":"mail no se encuentra registrado"}))
 
+
+@api.route("/sell", methods=['GET'])
+@jwt_required()
+def profile():
+    if request.method == 'GET':
+        token = get_jwt_identity()
+        return jsonify({"success": "Acceso a espacio privado", "usuario": token}), 200
 
 @api.route('/encomiendas', methods=['GET'])
 def all_encomiendas():
@@ -69,32 +93,3 @@ def all_perfilTransportista():
     all_perfilTransportista = list(map(lambda x: x.serialize(), all_perfilTransportista))
     return jsonify(all_perfilTransportista), 200       
 
-"""
-@api.route('/user', methods=['GET','POST'])
-def handle_hello():
-    #cuando es un get conseguiremos todos los usuarios 
-    if request.method =='GET':
-        all_people = User.query.all()
-        all_people = list(map(lambda x: x.serialize(), all_people))
-    
-        return jsonify(all_people), 200
-    
-    else:
-        body = request.get_json() # obtener el request body de la solicitud
-        if body is None:
-            return "The request body is null", 400
-        if 'email' not in body:
-            return 'Especificar email', 400
-        if 'password' not in body:
-            return 'Especificar password',400
-        #estoy consultando si existe alguien con el email que mande en la api y consigo la primera coincidencia
-        onePeople = User.query.filter_by(email=body["email"]).first()
-        if onePeople:
-            if (onePeople.password == body["password"] ):
-                return(jsonify({"mensaje":True}))
-            else:
-                return(jsonify({"mensaje":False}))
-        else:
-            return(jsonify({"mensaje":"mail no se encuentra registrado"}))
-
-"""

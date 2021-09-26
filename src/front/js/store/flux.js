@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			logged: false,
 			message: null,
 			demo: [
 				{
@@ -69,6 +70,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			enviarDatos: (e, mail, password) => {
+				e.preventDefault();
+				console.log("mail", mail);
+				console.log("password", password);
+
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					email: mail,
+					password: password
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch("https://3001-tan-rabbit-e1y753fu.ws-us18.gitpod.io/api/perfilVendedor", requestOptions)
+					.then(response => response.json())
+					.then(result => console.log(result))
+					.catch(error => console.log("error", error));
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -83,7 +109,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			//Funcion llamar usuarios, (API FAKE)
-			loadSeller: () => {
+			/*loadSeller: () => {
 				const store = getStore();
 				fetch("https://jsonplaceholder.typicode.com/users")
 					.then(response => response.json())
@@ -104,7 +130,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("ddetailseller", store.detailseller);
 					})
 					.catch(error => console.log("error", error));
-			},
+			},*/
 
 			changeColor: (index, color) => {
 				//get the store

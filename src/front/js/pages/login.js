@@ -6,6 +6,8 @@ import { Context } from "../store/appContext";
 import "../../styles/demo.scss";
 
 export const Login = () => {
+	const [mail, setMail] = useState("");
+	const [password, setPassword] = useState("");
 	const { store, actions } = useContext(Context);
 
 	return (
@@ -13,7 +15,11 @@ export const Login = () => {
 			{/* <h1 style={{ color: "black", textAlign: "center" }}>Bienvenido!</h1> */}
 			<div className="row" id="divSignin">
 				<div id="loginBox" className="col">
-					<form>
+					<form
+						onSubmit={e => {
+							e.preventDefault();
+							actions.enviarDatos(e, mail, password);
+						}}>
 						<h1>Acceso</h1>
 						<select className="custom-select" id="inputGroupSelect01">
 							<option selected>Selecciona tu Perfil</option>
@@ -21,12 +27,40 @@ export const Login = () => {
 							<option value="2">Vendedor</option>
 						</select>
 
-						<input type="text" className="form-control" name="mail" placeholder="E-mail" />
+						<input
+							type="text"
+							className="form-control"
+							name="mail"
+							placeholder="E-mail"
+							onChange={e => {
+								setMail(e.target.value);
+							}}
+						/>
 
-						<input type="password" className="form-control" name="password" placeholder="Contraseña" />
-						<button type="submit" style={{ backgroundColor: "transparent" }} className="btn btn-primary">
+						<input
+							type="password"
+							className="form-control"
+							name="password"
+							placeholder="Contraseña"
+							onChange={e => {
+								setPassword(e.target.value);
+							}}
+						/>
+						<button
+							type="submit"
+							style={{ backgroundColor: "transparent" }}
+							className="btn btn-primary"
+							onClick={e => {
+								e.preventDefault();
+								actions.enviarDatos(e, mail, password);
+							}}>
 							Iniciar Sesión
 						</button>
+
+						<Link to="/sell">
+							<button className="btn btn-danger">Ir a Pagina Privada</button>
+						</Link>
+
 						<br />
 						<br />
 						<h6 style={{ color: "white" }}>¿Olvidaste tu Contraseña?</h6>

@@ -20,6 +20,7 @@ import { NavbarSell } from "./component/ navbarSell";
 import { Sidebar } from "./component/sidebar";
 import { Something } from "./pages/something";
 import { Allseller } from "./component/allseller";
+import { Sell } from "./pages/sell";
 
 //create your first component
 const Layout = () => {
@@ -41,6 +42,10 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/something">
 							<Something />
+						</Route>
+						<Route exact path="/sell">
+							<NavbarSell />
+							<Sell />
 						</Route>
 						<Route exact path="/seller/:idseller">
 							<NavbarSell />

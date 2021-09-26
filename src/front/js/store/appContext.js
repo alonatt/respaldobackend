@@ -22,7 +22,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			state.actions.loadSeller();
+			/*state.actions.loadSeller();
 			state.actions.loadDetailseller();
 			/**
 			 * EDIT THIS!
